@@ -5,3 +5,8 @@ __pycache__/
 .venv/
 .env
 
+models/best.pt
+
+*.pt
+output/
+*.mp4
