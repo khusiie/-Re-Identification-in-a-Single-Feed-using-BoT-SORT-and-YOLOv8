@@ -92,15 +92,11 @@ Use Python 3.8 or higher.
 
 Create a virtual environment:
 
-bash
-Copy
-Edit
+
 python -m venv .venv
 Activate it and install dependencies:
 
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 Make sure to manually place the model files:
 
@@ -113,21 +109,15 @@ models/best.pt (OSNet model)
 Running the Project
 To start tracking and re-identification:
 
-bash
-Copy
-Edit
+
 python test_boxmot.py
 To export the CSV results:
 
-bash
-Copy
-Edit
+
 python convert_to_csv.py
 To generate cropped player thumbnails:
 
-bash
-Copy
-Edit
+
 python generate_gallery.py
 The processed video and files will be saved in the output/ directory.
 
