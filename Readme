@@ -1,0 +1,10 @@
+# Task 2: Re-Identification in a Single Feed
+
+## 🎯 Objective
+Track players in a video and re-identify them when they reappear after exiting the frame.
+
+## 🛠 Models Used
+- **Detector**: `yolov8n.pt` (YOLOv8 tiny)
+- **Re-Identification**: `osnet_x0_25_market1501.pt`
+
+## 📁 Folder Structure
