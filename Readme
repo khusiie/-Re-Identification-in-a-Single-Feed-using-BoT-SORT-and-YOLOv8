@@ -1,10 +1,68 @@
- Task 2: Re-Identification in a Single Feed
+Re-Identification in a Single Feed using BoT-SORT and YOLOv8
+This project solves the Task 2 challenge: tracking and re-identifying players in a 15-second football video. The goal is to assign consistent IDs to players, even when they leave and re-enter the frame.
 
-Objective
-Track players in a video and re-identify them when they reappear after exiting the frame.
+We used YOLOv8 for object detection, BoT-SORT for tracking, and OSNet for ReID (re-identification). Together, these ensure players are identified accurately and tracked consistently.
 
- Models Used
-Detector**: `yolov8n.pt` (YOLOv8 tiny)
-Re-Identification**: `osnet_x0_25_market1501.pt`
+How It Works
+The video is processed frame-by-frame using YOLOv8 to detect players.
+
+Each detected player is passed to BoT-SORT, which handles ID assignment and motion tracking.
+
+When a player leaves the frame and returns, OSNet ensures the same ID is re-assigned using appearance-based embedding.
+
+The final output is a video with bounding boxes and unique ID labels for each player.
+
+Project Structure
+test_boxmot.py: Main tracking and detection logic.
+
+convert_to_csv.py: Exports tracking data to CSV.
+
+generate_gallery.py: Creates cropped gallery images of each player (useful for visual verification).
+
+models/: Folder for your ReID model (e.g., best.pt – not tracked on GitHub).
+
+output/: Stores the final annotated video and gallery images.
+
+Installation & Requirements
+To run this project:
+
+Use Python 3.8 or higher.
+
+Create a virtual environment:
+python -m venv .venv
+Activate it and install dependencies:
 
 
+pip install -r requirements.txt
+Make sure to manually place the model files:
+
+yolov8n.pt (YOLO model)
+
+models/best.pt (OSNet model)
+
+⚠️ These are excluded from GitHub because they exceed the 100MB limit.
+
+Running the Project
+To start tracking and re-identification:
+
+
+python test_boxmot.py
+To export the CSV results:
+
+
+python convert_to_csv.py
+To generate cropped player thumbnails:
+
+
+python generate_gallery.py
+The processed video and files will be saved in the output/ directory.
+
+GitHub Repository
+You can find the code at:
+🔗 GitHub Link
+
+Make sure you clone the repo, add the models locally, and you're ready to go.
+
+
+Project by Khushi Gupta for Task 2 submission (Re-Identification).
+This showcases how YOLOv8, BoT-SORT, and OSNet can be combined for high-quality tracking and ReID in sports video analysis.
